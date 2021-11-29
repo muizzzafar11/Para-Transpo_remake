@@ -22,7 +22,7 @@ class Booking(BaseModel):
     pickupLocation2: Optional[str] = None
     dropoffLocation2: Optional[str] = None
     pickupTime2: Optional[str] = None
-    roundTrip2: Optional[str] = None
+    roundTrip2: Optional[bool] = None
 
 origins = [
     "http://localhost:8080",
@@ -52,5 +52,7 @@ async def create_booking(booking: Booking):
     web.find_element(By.XPATH,'//*[@id="Email"]').send_keys(webdriver.common.keys.Keys.TAB)
     web.find_element(By.XPATH,'//*[@id="Phone"]').send_keys(booking.phoneNum)
     web.find_element(By.XPATH, '//*[@id="ResAddTrip"]').click()
+    # Filling out the Pickup Information Form
+    
     time.sleep(20)
     return (booking)

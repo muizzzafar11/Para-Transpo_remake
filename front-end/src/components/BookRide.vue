@@ -1,50 +1,51 @@
 <template>
   <!-- Create a form asking for pickup location, dropoff location, pickup time and a checkbox for round trip-->
-    <div class="book-ride">
-        <form @submit.prevent="bookRide">
-        <div class="form-group">
-            <label for="pickupLocation">Pickup Location</label>
-            <input type="text" class="form-control" id="pickupLocation" v-model="pickupLocation" placeholder="Enter pickup location">
-        </div>
-        <div class="form-group">
-            <label for="dropoffLocation">Dropoff Location</label>
-            <input type="text" class="form-control" id="dropoffLocation" v-model="dropoffLocation" placeholder="Enter dropoff location">
-        </div>
-        <div class="form-group">
-            <label for="pickupTime">Pickup Time</label>
-            <input type="time" class="form-control" id="pickupTime" v-model="pickupTime" placeholder="Enter pickup time">
-        </div>
-        <div class="form-group round-trip-gp">
-            <label for="roundTrip">Round Trip</label>
-            <input type="checkbox" id="roundTrip" v-model="roundTrip">
-        </div>
-        <br>
-        <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-    <p style="font-size: 30px; margin-top: 25px;">Book a Second Trip</p>
-    <div class="book-ride">
-        <form @submit.prevent="bookRide2">
-        <div class="form-group">
-            <label for="pickupLocation2">Pickup Location</label>
-            <input type="text" class="form-control" id="pickupLocation2" v-model="pickupLocation2" placeholder="Enter pickup location">
-        </div>
+   <form @submit.prevent="bookRide">
+        <div class="book-ride">
+            <form>
+            <div class="form-group">
+                <label for="pickupLocation">Pickup Location</label>
+                <input type="text" class="form-control" id="pickupLocation" v-model="pickupLocation" placeholder="Enter pickup location">
+            </div>
             <div class="form-group">
                 <label for="dropoffLocation">Dropoff Location</label>
-                <input type="text" class="form-control" id="dropoffLocation2" v-model="dropoffLocation2" placeholder="Enter dropoff location">
+                <input type="text" class="form-control" id="dropoffLocation" v-model="dropoffLocation" placeholder="Enter dropoff location">
             </div>
-        <div class="form-group">
-            <label for="pickupTime">Pickup Time</label>
-            <input type="time" class="form-control" id="pickupTime2" v-model="pickupTime2" placeholder="Enter pickup time">
+            <div class="form-group">
+                <label for="pickupTime">Pickup Time</label>
+                <input type="time" class="form-control" id="pickupTime" v-model="pickupTime" placeholder="Enter pickup time">
+            </div>
+            <div class="form-group round-trip-gp">
+                <label for="roundTrip">Round Trip</label>
+                <input type="checkbox" id="roundTrip" v-model="roundTrip">
+            </div>
+            <br>
+            </form>
         </div>
-        <div class="form-group round-trip-gp">
-            <label for="roundTrip2">Round Trip</label>
-            <input type="checkbox" id="roundTrip2" v-model="roundTrip2">
+        <p style="font-size: 30px; margin-top: 25px;">Book a Second Trip</p>
+        <div class="book-ride">
+            <form>
+            <div class="form-group">
+                <label for="pickupLocation2">Pickup Location</label>
+                <input type="text" class="form-control" id="pickupLocation2" v-model="pickupLocation2" placeholder="Enter pickup location">
+            </div>
+                <div class="form-group">
+                    <label for="dropoffLocation">Dropoff Location</label>
+                    <input type="text" class="form-control" id="dropoffLocation2" v-model="dropoffLocation2" placeholder="Enter dropoff location">
+                </div>
+            <div class="form-group">
+                <label for="pickupTime">Pickup Time</label>
+                <input type="time" class="form-control" id="pickupTime2" v-model="pickupTime2" placeholder="Enter pickup time">
+            </div>
+            <div class="form-group round-trip-gp">
+                <label for="roundTrip2">Round Trip</label>
+                <input type="checkbox" id="roundTrip2" v-model="roundTrip2">
+            </div>
+            <br>
+            </form>
         </div>
-        <br>
-        <button style="margin-top: 10px;" type="submit" class="btn btn-primary submit-btn">Submit</button>
-        </form>
-    </div>
+        <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </template>
 
 <script>
@@ -65,12 +66,6 @@ export default {
     },
     methods: {
         bookRide() {
-            // // store information from the form in localstorage
-            // localStorage.setItem('pickupLocation', this.pickupLocation);
-            // localStorage.setItem('dropoffLocation', this.dropoffLocation);
-            // localStorage.setItem('pickupTime', this.pickupTime);
-            // localStorage.setItem('roundTrip', this.roundTrip);
-            // axios post request to localhost:8000/api/bookings
             axios.post('http://localhost:8000/api/bookings', {
                 regNum: localStorage.getItem('regNum'),
                 lastName: localStorage.getItem('lastName'),
@@ -80,22 +75,7 @@ export default {
                 pickupLocation: this.pickupLocation,
                 dropoffLocation: this.dropoffLocation,
                 pickupTime: this.pickupTime,
-                roundTrip: this.roundTrip
-            })
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        },
-        bookRide2() {
-            // store information from the form in localstorage
-            // localStorage.setItem('pickupLocation2', this.pickupLocation2);
-            // localStorage.setItem('dropoffLocation2', this.dropoffLocation2);
-            // localStorage.setItem('pickupTime2', this.pickupTime2);
-            // localStorage.setItem('roundTrip2', this.roundTrip2);
-            axios.post('http://localhost:8000/api/bookings', {
+                roundTrip: this.roundTrip,
                 pickupLocation2: this.pickupLocation2,
                 dropoffLocation2: this.dropoffLocation2,
                 pickupTime2: this.pickupTime2,
