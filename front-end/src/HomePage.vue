@@ -2,7 +2,7 @@
     <div id="Home">
     <TabNav :tabs="['Home', 'Settings']" :selected="selected" @selected="setSelected" >
       <Tab :isSelected="selected === 'Home'" >
-        <p style="font-size: 30px; margin-top: 25px;">Booking trip for <b style="color: red"> {{ today }}</b></p>
+        <p style="font-size: 30px; margin-top: 25px; font-weight: bold;">Booking trip for <b style="color: red"> {{ today }}</b></p>
         <BookRide />
       </Tab>
       <Tab :isSelected="selected === 'Settings'" >

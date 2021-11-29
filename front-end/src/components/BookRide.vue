@@ -4,47 +4,49 @@
         <div class="book-ride">
             <form>
             <div class="form-group">
-                <label for="pickupLocation">Pickup Location</label>
+                <label for="pickupLocation" class="form-label">Pickup Location</label>
                 <input type="text" class="form-control" id="pickupLocation" v-model="pickupLocation" placeholder="Enter pickup location">
             </div>
             <div class="form-group">
-                <label for="dropoffLocation">Dropoff Location</label>
+                <label for="dropoffLocation" class="form-label">Dropoff Location</label>
                 <input type="text" class="form-control" id="dropoffLocation" v-model="dropoffLocation" placeholder="Enter dropoff location">
             </div>
             <div class="form-group">
-                <label for="pickupTime">Pickup Time</label>
+                <label for="pickupTime" class="form-label">Pickup Time</label>
                 <input type="time" class="form-control" id="pickupTime" v-model="pickupTime" placeholder="Enter pickup time">
             </div>
             <div class="form-group round-trip-gp">
-                <label for="roundTrip">Round Trip</label>
+                <label for="roundTrip" class="form-label">Round Trip</label>
                 <input type="checkbox" id="roundTrip" v-model="roundTrip">
             </div>
             <br>
             </form>
         </div>
-        <p style="font-size: 30px; margin-top: 25px;">Book a Second Trip</p>
+        <p style="font-size: 30px; margin-top: 25px; font-weight: bold;">Book a Second Trip</p>
         <div class="book-ride">
             <form>
             <div class="form-group">
-                <label for="pickupLocation2">Pickup Location</label>
+                <label for="pickupLocation2" class="form-label">Pickup Location</label>
                 <input type="text" class="form-control" id="pickupLocation2" v-model="pickupLocation2" placeholder="Enter pickup location">
             </div>
                 <div class="form-group">
-                    <label for="dropoffLocation">Dropoff Location</label>
+                    <label for="dropoffLocation" class="form-label">Dropoff Location</label>
                     <input type="text" class="form-control" id="dropoffLocation2" v-model="dropoffLocation2" placeholder="Enter dropoff location">
                 </div>
             <div class="form-group">
-                <label for="pickupTime">Pickup Time</label>
+                <label for="pickupTime" class="form-label">Pickup Time</label>
                 <input type="time" class="form-control" id="pickupTime2" v-model="pickupTime2" placeholder="Enter pickup time">
             </div>
             <div class="form-group round-trip-gp">
-                <label for="roundTrip2">Round Trip</label>
+                <label for="roundTrip2" class="form-label">Round Trip</label>
                 <input type="checkbox" id="roundTrip2" v-model="roundTrip2">
             </div>
             <br>
             </form>
         </div>
-        <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+        <div>
+            <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+        </div>
     </form>
 </template>
 
@@ -111,5 +113,8 @@ export default {
 }
 .round-trip-gp{
     float: left;
+}
+.form-label{
+    font-weight: bold;
 }
 </style>
