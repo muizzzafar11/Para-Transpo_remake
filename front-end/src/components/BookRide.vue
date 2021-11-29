@@ -16,7 +16,9 @@
                 <input type="time" class="form-control" id="pickupTime" v-model="pickupTime" placeholder="Enter pickup time">
             </div>
             <div class="form-group round-trip-gp">
-                <label for="roundTrip" class="form-label">Round Trip</label>
+                <label for="roundTrip" class="form-label">Round Trip
+                    <span class="tooltiptext">By checking "Round Trip", you book a return trip that will take you from the dropoff location back to the pickup location at the selected time. </span>
+                </label>
                 <input type="checkbox" id="roundTrip" v-model="roundTrip">
             </div>
             <br>
@@ -38,7 +40,9 @@
                 <input type="time" class="form-control" id="pickupTime2" v-model="pickupTime2" placeholder="Enter pickup time">
             </div>
             <div class="form-group round-trip-gp">
-                <label for="roundTrip2" class="form-label">Round Trip</label>
+                <label for="roundTrip2" class="form-label">Round Trip
+                    <span class="tooltiptext">By checking "Round Trip", you book a return trip that will take you from the dropoff location back to the pickup location at the selected time. </span>
+                </label>
                 <input type="checkbox" id="roundTrip2" v-model="roundTrip2">
             </div>
             <br>
@@ -116,5 +120,21 @@ export default {
 }
 .form-label{
     font-weight: bold;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 500px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.form-label:hover .tooltiptext {
+  visibility: visible;
 }
 </style>

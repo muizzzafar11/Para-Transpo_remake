@@ -53,6 +53,9 @@ async def create_booking(booking: Booking):
     web.find_element(By.XPATH,'//*[@id="Phone"]').send_keys(booking.phoneNum)
     web.find_element(By.XPATH, '//*[@id="ResAddTrip"]').click()
     # Filling out the Pickup Information Form
-    
+    web.find_element(By.XPATH,'//*[@id="PickUpOtherAdd1"]').send_keys(booking.pickupLocation)
+    web.find_element(By.XPATH,'//*[@id="DropOffOtherAdd1"]').send_keys(booking.dropoffLocation)
+    web.find_element(By.XPATH,'//*[@id="PickUpOtherAdd2"]').send_keys(booking.pickupLocation2)
+    web.find_element(By.XPATH,'//*[@id="DropOffOtherAdd2"]').send_keys(booking.dropoffLocation2)
     time.sleep(20)
     return (booking)
