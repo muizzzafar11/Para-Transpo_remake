@@ -6,7 +6,7 @@
         <BookRide />
       </Tab>
       <Tab :isSelected="selected === 'Settings'" >
-        <Login msg="Welcome to para-transpo scheduling. Please register below"/>
+        <Login msg=""/>
       </Tab>
     </TabNav>
   </div>
@@ -24,13 +24,13 @@ export default {
   data() {
     return {
       selected: 'Home',
-        today: new Date(new Date().getTime() + 48 * 60 * 60 * 1000).toLocaleDateString(),
+      today: new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toLocaleDateString(),
     }
   },
   methods: {
     setSelected(tab) {
       this.selected = tab;
-    }
+    },
   },
 }
 </script>

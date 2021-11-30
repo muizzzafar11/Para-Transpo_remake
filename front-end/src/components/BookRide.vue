@@ -24,7 +24,7 @@
             <br>
             </form>
         </div>
-        <p style="font-size: 30px; margin-top: 25px; font-weight: bold;">Book a Second Trip</p>
+        <p style="font-size: 30px; margin-top: 45px; font-weight: bold;">Book a Second Trip</p>
         <div class="book-ride">
             <form>
             <div class="form-group">
@@ -103,9 +103,10 @@ export default {
 .book-ride {
     border-radius: 20px;
     border: 3px solid #f1f1f1;
-    width: 50%;
+    width: 60vw;
     margin: auto;
     padding: 20px;
+    font-size: 20px;
 }
 .form-group input[type="text"], input[type="time"]{
     height: 50px;

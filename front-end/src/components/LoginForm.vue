@@ -7,7 +7,7 @@
         <input type="text" placeholder="First Name" v-model="firstName" />
         <input type="text" placeholder="Last Name" v-model="lastName" />
         <input type="text" placeholder="Phone Number" v-model="phoneNum" />
-        <button type="submit" @click="onSubmit">login</button>
+        <button type="submit" @click="onSubmit">{{loginButton}}</button>
         <!-- <p class="message">Not registered? <a href="#">Create an account</a></p> -->
       </form>
     </div>
@@ -22,11 +22,12 @@ export default {
   },
   data() {
     return {
-      email: '',
-      regNum: '',
-      firstName: '',
-      lastName: '',
-      phoneNum: ''
+      email: localStorage.getItem('email') ? localStorage.getItem('email') : '',
+      regNum: localStorage.getItem('regNum') ? localStorage.getItem('regNum') : '',
+      firstName: localStorage.getItem('firstName') ? localStorage.getItem('firstName') : '',
+      lastName: localStorage.getItem('lastName') ? localStorage.getItem('lastName') : '',
+      phoneNum: localStorage.getItem('phoneNum') ? localStorage.getItem('phoneNum') : '',
+      loginButton: localStorage.getItem('email') ? 'Update' : 'Login',
     }
   },
   methods: {
@@ -48,17 +49,19 @@ export default {
   width: 100%;
   padding: 8% 0 0;
   margin: auto;
+  font-size: 25px;
 }
 .form {
   width: 100%;
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 360px;
+  max-width: 60vw;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+  border: 3px solid #f1f1f1;
 }
 .form input {
   border-radius: 30px;
@@ -76,19 +79,20 @@ export default {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #4b4b4b;
   width: 50%;
   border-radius: 30px;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
+  margin-top: 20px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: #000000;
 }
 .form .message {
   margin: 15px 0 0;
