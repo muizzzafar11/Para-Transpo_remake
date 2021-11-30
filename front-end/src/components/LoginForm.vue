@@ -8,7 +8,6 @@
         <input type="text" placeholder="Last Name" v-model="lastName" />
         <input type="text" placeholder="Phone Number" v-model="phoneNum" />
         <button type="submit" @click="onSubmit">{{loginButton}}</button>
-        <!-- <p class="message">Not registered? <a href="#">Create an account</a></p> -->
       </form>
     </div>
   </div>
