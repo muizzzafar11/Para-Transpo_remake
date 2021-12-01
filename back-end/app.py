@@ -19,10 +19,16 @@ class Booking(BaseModel):
     dropoffLocation: str
     pickupTime: str
     roundTrip: bool
+    roundTripPickUpTime: str
+    homePickup: bool
+    homeDropoff: bool
     pickupLocation2: Optional[str] = None
     dropoffLocation2: Optional[str] = None
     pickupTime2: Optional[str] = None
     roundTrip2: Optional[bool] = None
+    roundTripPickUpTime2: Optional[str] = None
+    homePickup2: Optional[bool] = None
+    homeDropoff2: Optional[bool] = None
 
 origins = [
     "http://localhost:8080",
