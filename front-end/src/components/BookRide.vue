@@ -47,7 +47,7 @@
                 <!-- Round trip pickup time -->
                 <div v-if="roundTrip" class="form-group">
                     <label style="display: flex; justify-content: center;" for="pickupTimeReturnTrip" class="form-label">Return Trip Pickup Time</label>
-                    <input type="time" class="form-control" id="pickupTimeReturnTrip" v-model="pickupTimeReturnTrip" placeholder="Enter pickup time">
+                    <input type="time" class="form-control" id="pickupTimeReturnTrip" v-model="roundTripPickUpTime" placeholder="Enter pickup time">
                 </div>
                 <br>
             </form>
@@ -105,7 +105,7 @@
             <br>
             <div v-if="roundTrip2" class="form-group">
                 <label style="display: flex; justify-content: center;" for="pickupTimeReturnTrip" class="form-label">Return Trip Pickup Time</label>
-                <input type="time" class="form-control" id="pickupTimeReturnTrip" v-model="pickupTimeReturnTrip" placeholder="Enter pickup time">
+                <input type="time" class="form-control" id="pickupTimeReturnTrip" v-model="roundTripPickUpTime2" placeholder="Enter pickup time">
             </div>
             <br>
             </form>
@@ -163,6 +163,7 @@ export default {
             })
             .then(response => {
                 console.log(response);
+                confirm("The ride has been booked.");
             })
             .catch(error => {
                 console.log(error);
