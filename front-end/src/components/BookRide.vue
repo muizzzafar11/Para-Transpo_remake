@@ -1,6 +1,8 @@
 <template>
+<p v-if="loading" style="font-size:50px; margin-top: 60px">Please wait.</p>
+<p v-if="loading" style="font-size:50px">Your ride is being booked.</p>
   <!-- Create a form asking for pickup location, dropoff location, pickup time and a checkbox for round trip-->
-   <form @submit.prevent="bookRide">
+   <form v-else @submit.prevent="bookRide">
         <div class="book-ride">
             <form>
                 <!-- Pickup Location -->
@@ -136,10 +138,12 @@ export default {
             roundTripPickUpTime2: '',
             homePickup2: false,
             homeDropoff2: false,
+            loading: false,
         }
     },
     methods: {
         bookRide() {
+            this.loading = true;
             axios.post('http://localhost:8000/api/bookings', {
                 regNum: localStorage.getItem('regNum'),
                 lastName: localStorage.getItem('lastName'),
@@ -164,9 +168,11 @@ export default {
             .then(response => {
                 console.log(response);
                 confirm("The ride has been booked.");
+                this.loading = false;
             })
             .catch(error => {
                 console.log(error);
+                this.loading = false;
             })
         }
     }
